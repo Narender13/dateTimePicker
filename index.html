@@ -59,6 +59,7 @@
 	  function getNextDate(){
 	  var date2 = getTodayDate()._$dateInput.datetimepicker('getDate', '+1d'); 
       date2.setDate(date2.getDate()+1); 
+	  date2.setMinutes(date2.getMinutes()-1);
       getTodayDate()._$dateInputNext.datetimepicker('setDate', date2);
 	  return date2;
 	  }
