@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        body {
+            background: #d2b98c;
+        }
+
+        .wrapper {
+            display: block;
+            overflow: auto;
+            min-height: 1px;
+            max-height: 100%;
+            padding: 50px;
+            border: 1px solid gray;
+        }
+
+        .padleft30 {
+            padding-left: 30px;
+        }
+
+        .padleft40 {
+            padding-left: 40px;
+        }
+
+        .padleft50 {
+            padding-left: 50px;
+        }
+
+        .checkBox {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            height: 50px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .checkBox label {
+            font-size: 20px;
+        }
+
+        .tableContainer {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="checkBox">
+            <div class="higherEducatuon"><input type="checkbox" name="higherEducatuonName"><label for="higherEducatuon">Higher Education</label></div>
+        </div>
+        <div class="checkBox">
+            <div class="higherEducatuon hide padleft30"><input type="checkbox" class="" name="higherEducatuonName"><label for="higherEducatuon">UG</label></div>
+        </div>
+        <div class="checkBox">
+            <div class="threeYears hide padleft40"><input type="checkbox" name="threeYearsName"><label for="higherEducatuon">3Years Program</label></div>
+        </div>
+        <div>
+            <div class="tableContainer hide padleft50">
+                <table class="educationDetail">
+                    <thead>
+                        <tr>
+                            <td>Academic year</td>
+                            <td>No of first year student</td>
+                            <td>Academic year</td>
+                        </tr>
+                        <thead>
+                            <tbody>
+                                <tr>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                    <td>5
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="checkBox">
+            <div class="fourYearsProgram"><input type="checkbox" name="fourYearsProgramName"><label for="higherEducatuon">4Years Program</label></div>
+        </div>
+        <div class="checkBox">
+            <div class="PG hide padleft30"><input type="checkbox" name="PGName hide"><label for="higherEducatuon">PG</label></div>
+        </div>
+        <div class="checkBox">
+            <div class="phdEducation hide padleft40"><input type="checkbox" name="phdEducationName"><label for="higherEducatuon">Ph.d</label></div>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("input[type='checkbox']").on("change", function () {
+            var $this = $(this);
+            var $siblings = $this.parent().parent();
+            if ($this.is(':checked')) {
+                console.log("checked");
+                $siblings.next().children().removeClass("hide");
+                $siblings.nextAll().children().find("input").not(".fourYearsProgram input").prop("checked", false);//set false if parent is checked agai
+
+            }
+            else {
+                console.log("not checked")
+                $siblings.nextAll().children().not(".fourYearsProgram").addClass("hide");
+
+            }
+
+
+
+
+        })
+    </script>
+</body>
+</html
